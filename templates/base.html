@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}欢迎光临{% endblock title %} - 自强学堂</title>
+  
+    <!-- Bootstrap -->
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+  
+    <!-- 引入下面两个库让 IE8 支持 HTML5 元素 -->
+    <!-- 警告: Respond.js 通过 file:// 浏览的时候不能正常工作！-->
+    <!--[if lt IE 9]>
+      <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+      <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% block css %}
+        
+    {% endblock css %}
+
+    {% block js %}
+        
+    {% endblock js %}
+  </head>
+  <body>
+    <div class="row">
+        <div class="col-md-12">
+            {% block content %}
+                <h1>自强 新闻网</h1>
+            {% endblock content %}
+        </div>
+    </div>
+  
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    {% include "baidutongji.html" %}
+  </body>
+</html>
