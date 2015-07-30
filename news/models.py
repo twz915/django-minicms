@@ -43,7 +43,7 @@ class Article(models.Model):
     published = models.BooleanField('正式发布', default=True)
 
     def get_absolute_url(self):
-        return reverse('article', args=(self.slug, ))
+        return reverse('article', args=(self.pk, self.slug))
 
     def __str__(self):
         return self.title

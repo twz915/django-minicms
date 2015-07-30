@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Column, Article
-
+from django.shortcuts import redirect
 
 def index(request):
     columns = Column.objects.all()
@@ -14,6 +14,10 @@ def column_detail(request, column_slug):
     return render(request, 'news/column.html', {'column': column})
 
 
-def article_detail(request, article_slug):
-    article = Article.objects.filter(slug=article_slug)[0]
+def article_detail(request, pk, article_slug):
+    article = Article.objects.get(pk=pk)
+
+    if article_slug != article.slug:
+        return redirect(article, permanent=True)
+
     return render(request, 'news/article.html', {'article': article})
