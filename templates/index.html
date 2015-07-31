@@ -5,7 +5,7 @@
 
 {% block content %}
 <ul>
-    {% for column in  columns %}
+    {% for column in  home_display_columns %}
         <li>
             <a href="{{ column.get_absolute_url }}"> {{ column.name }} </a>
         </li>

@@ -4,9 +4,15 @@ from django.http import HttpResponse
 from .models import Column, Article
 from django.shortcuts import redirect
 
+
 def index(request):
-    columns = Column.objects.all()
-    return render(request, 'index.html', {'columns': columns})
+    home_display_columns = Column.objects.filter(home_display=True)
+    nav_display_columns = Column.objects.filter(nav_display=True)
+
+    return render(request, 'index.html', {
+        'home_display_columns': home_display_columns,
+        'nav_display_columns': nav_display_columns,
+    })
 
 
 def column_detail(request, column_slug):
